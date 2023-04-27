@@ -1,30 +1,50 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="root">
+    <div class="tabs">
+      <div class="tab">
+        <router-link to="/addticket">Input Ticket</router-link>
+      </div>
+      <div class="tab">
+        <router-link to="/table">Show Ticket</router-link>
+      </div>
+    </div>
+    <router-view></router-view>
+  </div>
 </template>
 
+<script>
+export default {
+  name: "app",
+  data() {
+    return {
+      message: "",
+    };
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.tabs {
+  display: flex;
+}
+
+.tab {
+  flex-grow: 1;
   text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.tab a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
 }
 
-nav a {
+.tab a:hover,
+.tab a.router-link-active {
+  border-bottom-color: black;
   font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
